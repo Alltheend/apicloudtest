@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <style>
+        .empty{ text-align: center; padding: 120px 0; }
+    </style>
+</head>
+<body>
+    <div class="empty">云APIdddd</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+
+	var imageUrl = "http://img5.mtime.cn/pi/2017/11/23/143027.81458565_1000X1000.jpg"
+	var dialogBox;
+    apiready = function() { 
+        dialogBox = api.require('dialogBox');
+        dialogBox.scene({
+	    rect: {
+	        w: 280,
+	        h: 400
+	    },
+	    texts: {
+	        title: '情景1',
+	        content: '火车售票处前的队伍蜿蜒纵横，旁边一小伙一边张望，一边将手伸向前面买票人的口袋，啊，是小偷!',
+	        okBtnTitle: '确定'
+	    },
+	    styles: {
+	        bg: '#fff',
+	        title: {
+	            bg: '#aaa',
+	            h: 44,
+	            size: 14,
+	            color: '#000'
+	        },
+	        sceneImg: {
+	            h: 150,
+	            path: 'widget://image/sceneImg.png'
+	        },
+	        content: {
+	            color: '#111',
+	            size: 12
+	        },
+	        cell: {
+	            bg: '#fff',
+	            h: 48,
+	            text: {
+	                color: '#636363',
+	                size: 13
+	            },
+	            icon: {
+	                marginL: 15,
+	                marginT: 9,
+	                w: 30,
+	                h: 30,
+	                corner: 2
+	            }
+	        },
+	        ok: {
+	            bg: '#89a',
+	            titleColor: '#f00'
+	        }
+	    },
+	    optionDatas: [{
+	        icon: 'http://img5.mtime.cn/pi/2017/11/23/143027.81458565_1000X1000.jpg',
+	        text: '1、拿出手机偷拍'
+	    }, {
+	        icon: 'http://img5.mtime.cn/pi/2017/11/23/143027.81458565_1000X1000.jpg',
+	        text: '2、见义勇为抓小偷'
+	    }, {
+	        text: '3、大声提醒买票的人'
+	    }]
+	}, function(ret, err) {
+	    if (ret) {
+	    	dialogBox.close();
+	        alert(JSON.stringify(ret));
+	    } else {
+	    	dialogBox.close();
+	        alert(JSON.stringify(err));
+	    }
+	});
+    }
+</script>
+</html>
